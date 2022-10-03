@@ -1,18 +1,18 @@
+import { useState } from "react";
 import Expenses from "./components/Expenses";
 import NewExpense from "./components/NewExpense";
 
-import { expenses } from "./core/dummyData";
+import { expenses as dummyData } from "./core/dummyData";
 
 function App() {
-  const handlerAddExpense = (expense) => {
-    console.log("In App.js");
-    console.log(expense);
+  const [expenses, setExpenses] = useState(dummyData);
+  const handleAddExpense = (expense) => {
+    setExpenses((prevExpenses) => [expense, ...prevExpenses]);
   };
 
   return (
     <div>
-      <NewExpense onAddExpense={handlerAddExpense} />
-
+      <NewExpense onAddExpense={handleAddExpense} />
       <Expenses items={expenses} />
     </div>
   );
