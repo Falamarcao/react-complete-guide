@@ -3,7 +3,7 @@ import ExpenseForm from "./ExpenseForm";
 import "./NewExpense.css";
 
 const NewExpense = (props) => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
 
   const handleSave = (data) => {
     data.id = Math.random().toString(); // just for demonstration purposes... this could generate a duplicated id.
